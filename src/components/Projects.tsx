@@ -18,6 +18,26 @@ export default function Projects() {
   };
 
   useEffect(() => {
+    if (!activeProject && !expandedImage) return;
+
+    const originalOverflow = document.body.style.overflow;
+    const originalPaddingRight = document.body.style.paddingRight;
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+
+    document.body.style.overflow = "hidden";
+
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      document.body.style.paddingRight = originalPaddingRight;
+    };
+  }, [activeProject, expandedImage]);
+
+  useEffect(() => {
     const onEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         if (expandedImage) {
@@ -37,14 +57,19 @@ export default function Projects() {
       <div className="section-shell">
         <div className="animate-fade-in mb-12 grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
           <div>
-           <p className="font-mono mb-4 text-xs uppercase tracking-[0.3em] text-accent">
-             {"// Project archive"}
-           </p>
+            <p className="font-mono mb-4 text-xs uppercase tracking-[0.3em] text-accent">
+              {"// Projects"}
+            </p>
 
-           <h2 className="font-display text-3xl font-bold leading-none text-text-primary sm:text-4xl lg:text-5xl">
-             Featured Work
-           </h2>
+            <h2 className="font-display text-3xl font-bold leading-none text-text-primary sm:text-4xl lg:text-5xl">
+              Featured Work
+            </h2>
           </div>
+
+          <p className="max-w-xl text-base text-text-muted sm:text-lg lg:justify-self-end">
+            Click a project to open a detail view with screenshots, context,
+            stack, and source links.
+          </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -59,11 +84,11 @@ export default function Projects() {
 
         {activeProject && (
           <div
-            className="fixed inset-0 z-50 flex items-end justify-center bg-black/70 px-4 py-6 backdrop-blur-sm sm:items-center sm:p-6"
+            className="fixed inset-0 z-50 flex items-end justify-center overflow-y-auto overscroll-contain bg-black/70 px-4 py-6 backdrop-blur-sm sm:items-center sm:p-6"
             onClick={closeProject}
           >
             <div
-              className="animate-fade-in w-full max-w-6xl overflow-hidden rounded-3xl border border-border bg-bg shadow-[0_30px_120px_rgba(0,0,0,0.55)]"
+              className="animate-fade-in max-h-[88dvh] w-full max-w-6xl overflow-y-auto overscroll-contain rounded-3xl border border-border bg-bg shadow-[0_30px_120px_rgba(0,0,0,0.55)]"
               onClick={(event) => event.stopPropagation()}
             >
               <div className="grid gap-0 lg:grid-cols-[1.15fr_0.85fr]">
@@ -96,6 +121,10 @@ export default function Projects() {
                     />
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+                    <div className="font-mono absolute left-4 top-4 rounded-full border border-accent/40 bg-bg/75 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-accent backdrop-blur-sm">
+                      Project preview
+                    </div>
 
                     <div className="absolute bottom-4 right-4 rounded-full border border-white/15 bg-black/70 px-3 py-1.5 text-xs text-text-primary opacity-0 transition-opacity group-hover:opacity-100">
                       View full image
@@ -222,7 +251,7 @@ export default function Projects() {
 
         {expandedImage && activeProject && (
           <div
-            className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 p-6 backdrop-blur-sm"
+            className="fixed inset-0 z-[60] flex items-center justify-center overflow-y-auto overscroll-contain bg-black/80 p-6 backdrop-blur-sm"
             onClick={() => setExpandedImage(null)}
           >
             <div
@@ -240,7 +269,7 @@ export default function Projects() {
               <img
                 src={expandedImage}
                 alt={`${activeProject.name} full screenshot`}
-                className="max-h-[78vh] w-full rounded-xl object-contain"
+                className="max-h-[78dvh] w-full rounded-xl object-contain"
               />
             </div>
           </div>
