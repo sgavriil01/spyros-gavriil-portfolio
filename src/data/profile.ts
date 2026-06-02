@@ -51,6 +51,7 @@ export const projects: Project[] = [
       "Profiled and tuned transactional queries in SQL Server",
       "Implemented secure authorization controls to prevent privilege escalation",
     ],
+    github: "https://github.com/tsembp/one-stop-ride-hail",
     highlight: true,
   },
   {
