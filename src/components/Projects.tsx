@@ -38,7 +38,7 @@ export default function Projects() {
         <div className="animate-fade-in mb-12 grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
           <div>
            <p className="font-mono mb-4 text-xs uppercase tracking-[0.3em] text-accent">
-             // Project archive
+             {"// Project archive"}
            </p>
 
            <h2 className="font-display text-3xl font-bold leading-none text-text-primary sm:text-4xl lg:text-5xl">
@@ -134,7 +134,7 @@ export default function Projects() {
                   <div className="mb-5 flex items-start justify-between gap-4">
                     <div>
                       <p className="font-mono mb-3 text-xs uppercase tracking-[0.28em] text-accent">
-                        // {activeProject.summary}
+                        {"//"} {activeProject.summary}
                       </p>
 
                       <h3 className="font-display text-2xl font-bold leading-tight text-text-primary sm:text-3xl">

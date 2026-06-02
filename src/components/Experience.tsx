@@ -25,7 +25,7 @@ export default function Experience() {
         <div className="mb-12 grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
           <div className="animate-fade-in">
             <p className="font-mono mb-4 text-xs uppercase tracking-[0.3em] text-accent">
-              // Background
+              { "// Background" }
             </p>
 
             <h2 className="font-display text-3xl font-bold leading-none text-text-primary sm:text-4xl lg:text-5xl">

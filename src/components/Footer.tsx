@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="animate-fade-in grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="font-mono mb-3 text-xs uppercase tracking-[0.3em] text-accent">
-              // Contact
+             { "// Contact" } 
             </p>
 
             <h2 className="font-display mb-4 text-3xl font-bold leading-none text-text-primary sm:text-4xl lg:text-5xl">

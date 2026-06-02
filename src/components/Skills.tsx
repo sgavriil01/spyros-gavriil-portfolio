@@ -43,7 +43,7 @@ export default function Skills() {
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="animate-fade-in">
             <p className="font-mono mb-4 text-xs uppercase tracking-[0.3em] text-accent">
-              // Stack
+             {"// Stack"} 
             </p>
 
             <h2 className="font-display mb-5 text-3xl font-bold leading-none text-text-primary sm:text-4xl lg:text-5xl">
