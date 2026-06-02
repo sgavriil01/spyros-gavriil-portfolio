@@ -1,0 +1,5 @@
+Place your CV PDF here as: Spyros_Gavriil_CV.pdf
+
+The portfolio hero section links to /Spyros_Gavriil_CV.pdf for the "Download CV" button.
+Once you have your CV PDF, rename it to Spyros_Gavriil_CV.pdf and place it in this /public directory.
+You can then delete this placeholder file.
