@@ -6,6 +6,7 @@ import { experience } from "@/data/profile";
 const tabs = [
   { id: "work", label: "work" },
   { id: "open-source", label: "open source" },
+  { id: "achievement", label: "achievements" },
   { id: "education", label: "education" },
 ] as const;
 
@@ -34,7 +35,7 @@ export default function Experience() {
           </div>
         </div>
 
-        <div className="mb-10 inline-flex items-center gap-1 rounded-xl border border-border/80 bg-surface/60 p-1 backdrop-blur-sm">
+        <div className="mb-10 inline-flex max-w-full flex-wrap items-center gap-1 rounded-xl border border-border/80 bg-surface/60 p-1 backdrop-blur-sm">
           {tabs.map((tab) => {
             const isActive = activeTab === tab.id;
 

@@ -1,6 +1,7 @@
 import { skillGroups } from "@/data/profile";
 
 const ICON_MAP: Record<string, string> = {
+  Go: "GO",
   Python: "🐍",
   Java: "☕",
   SQL: "🗄️",
@@ -10,6 +11,7 @@ const ICON_MAP: Record<string, string> = {
   TypeScript: "🔵",
 
   "Spring Boot": "🌱",
+  Quarkus: "Q",
   FastAPI: "⚡",
   Flask: "🍶",
   React: "⚛️",
@@ -21,11 +23,13 @@ const ICON_MAP: Record<string, string> = {
   PostgreSQL: "🐘",
   MySQL: "🐬",
   "SQL Server": "🧱",
+  Redis: "R",
   MongoDB: "🍃",
   Supabase: "☁️",
 
   Git: "◆",
   Docker: "🐳",
+  Maven: "M",
   Kubernetes: "☸️",
   Linux: "🐧",
   Postman: "📮",
@@ -34,6 +38,8 @@ const ICON_MAP: Record<string, string> = {
   Vercel: "▲",
   Grafana: "📈",
   "CI/CD Pipelines": "🔁",
+  "Kafka Concepts": "K",
+  "RESTful API Design": "API",
 };
 
 export default function Skills() {

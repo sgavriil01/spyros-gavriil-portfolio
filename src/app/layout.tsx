@@ -23,11 +23,11 @@ const sora = Sora({
 export const metadata: Metadata = {
   title: "Spyros Gavriil — Backend & Systems Engineer",
   description:
-    "Computer Science student focused on backend systems, databases, and infrastructure-oriented software.",
+    "Computer Science student and software engineering intern focused on backend systems, APIs, databases, and infrastructure-minded software.",
   openGraph: {
     title: "Spyros Gavriil",
     description:
-      "Computer Science student focused on backend systems, databases, and infrastructure-oriented software.",
+      "Computer Science student and software engineering intern focused on backend systems, APIs, databases, and infrastructure-minded software.",
     type: "website",
   },
 };

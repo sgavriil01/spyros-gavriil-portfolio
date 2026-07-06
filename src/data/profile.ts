@@ -4,12 +4,12 @@ export const profile = {
   email: "spyrosgavriil01@gmail.com",
   github: "https://github.com/sgavriil01",
   linkedin: "https://linkedin.com/in/spyros-gavriil",
-  cv: "/Spyros_Gavriil_CV_2025_26.pdf",
+  cv: "/Spyros_Gavriil_CV_2026_27.pdf",
   profileImage: "/profile.png",
   tagline:
-    "Computer Science student building reliable backend systems, APIs, and data-driven software.",
-  bio: "I focus on software that is practical, dependable, and understandable for both technical and non-technical users.",
-  status: "Incoming Software Engineering Intern at Intergo Telecom.",
+    "Computer Science student building reliable backend systems, APIs, and infrastructure-minded software.",
+  bio: "I focus on practical backend systems, dependable APIs, and software that stays understandable as it grows.",
+  status: "Software Engineering Intern at Intergo Telecom.",
   education: {
     university: "University of Cyprus",
     degree: "Bachelor of Computer Science",
@@ -34,6 +34,22 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "forgequeue",
+    name: "ForgeQueue",
+    summary: "Durable PostgreSQL-backed job queue in Go",
+    stack: ["Go", "PostgreSQL", "Docker", "Prometheus", "Grafana", "k6"],
+    image: "/projects/previews/forgequeue-grafana.png",
+    description:
+      "Built a durable job queue in Go with HTTP job submission, concurrent processing, retries, dead-letter jobs, lease-based recovery, and observability.",
+    focus: [
+      "Implemented safe concurrent job claiming with FOR UPDATE SKIP LOCKED",
+      "Added heartbeat-based lease renewal and expired-job reclaiming for reliable worker execution",
+      "Validated recovery behavior with k6 load tests and processed a 10,000-job backlog at 35.71 jobs/sec peak throughput",
+    ],
+    github: "https://github.com/sgavriil01/forgequeue",
+    highlight: true,
+  },
+  {
     id: "osrh",
     name: "One-Stop Ride-Hail (OSRH)",
     summary: "Ride-hailing backend with optimized SQL procedures",
@@ -53,6 +69,22 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/tsembp/one-stop-ride-hail",
     highlight: true,
+  },
+  {
+    id: "ai-finance-tracker",
+    name: "Personal Finance Tracker",
+    summary: "Python finance tracker with CSV storage and trend plots",
+    stack: ["Python", "Tkinter", "pandas", "matplotlib", "CSV"],
+    image: "/projects/previews/finance-tracker.svg",
+    description:
+      "Built a personal finance tracker for recording income and expenses, viewing transactions by date range, and plotting spending trends from CSV-backed data.",
+    focus: [
+      "Added transaction entry with date, amount, category, and description validation",
+      "Used pandas and CSV storage for filtering and managing finance records",
+      "Generated income and expense trend plots with matplotlib",
+    ],
+    github: "https://github.com/sgavriil01/Personal-Finance-Tracker",
+    highlight: false,
   },
   {
     id: "sms-platform",
@@ -114,7 +146,7 @@ export type Experience = {
   description: string;
   highlights: string[];
   stack: string[];
-  category: "work" | "open-source" | "education";
+  category: "work" | "open-source" | "achievement" | "education";
   github?: string;
   link?: string;
   incoming?: boolean;
@@ -124,27 +156,28 @@ export const experience: Experience[] = [
   {
     id: "intergo",
     company: "Intergo Telecom",
-    role: "Incoming Software Engineering Intern",
-    dates: "Incoming",
-    location: "Paphos, Cyprus",
+    role: "Software Engineering Intern",
+    dates: "Jun 2026 - Present",
+    location: "Remote",
     description:
-      "Joining Intergo Telecom as a Software Engineering Intern to work on production software systems in a telecom environment.",
+      "Contributing to backend development for SIP trunk management features in a telecom and CPaaS platform.",
     highlights: [
-      "Incoming internship role",
-      "Focus on practical engineering in production systems",
+      "Supporting customer workflows to create, view, filter, and manage trunks under tenant accounts",
+      "Helping implement REST APIs and validation logic in Java and Quarkus",
+      "Strengthening validation, permission-based access checks, error handling, and transactional safeguards across SIP trunk and DID workflows",
     ],
-    stack: ["Software Engineering", "Backend", "Telecom Systems"],
+    stack: ["Java", "Quarkus", "REST APIs", "Telecom", "CPaaS"],
     category: "work",
-    incoming: true,
+    incoming: false,
   },
   {
     id: "cyens",
     company: "CYENS Centre of Excellence",
-    role: "AI Software Engineering Intern",
+    role: "Software Engineering Intern",
     dates: "Jun 2025 - Sep 2025",
     location: "Nicosia, Cyprus",
     description:
-      "Led engineering work for an AI storytelling platform and improved reliability before deployment in a live school study.",
+      "Developed features for an AI storytelling platform and improved reliability before deployment in a live school study.",
     highlights: [
       "Improved generation consistency and multilingual logic for branching narratives",
       "Rebuilt media pipelines (TTS + image generation) to 100% reliability",
@@ -158,19 +191,35 @@ export const experience: Experience[] = [
     id: "pyrefly",
     company: "Meta Platforms - Pyrefly",
     role: "Open Source Contributor",
-    dates: "Jan 2026 - March 2026",
+    dates: "Jan 2026 - Mar 2026",
     location: "Remote",
     description:
-      "Contributed to Meta's open-source type checker Pyrefly, with focus on type checking behavior and LSP features.",
+      "Contributed to Meta's open-source Python type checker and language server Pyrefly in Rust.",
     highlights: [
-      "Authored 3 PRs (1 merged, 1 imported, 1 under review)",
-      "Collaborated with maintainers through CI and code review cycles",
-      "Worked in a production Rust codebase on developer tooling features",
+      "Authored 2 merged PRs for constructor signature display and union attribute suggestions",
+      "Iterated on an additional LSP config-diagnostics PR through maintainer review",
+      "Improved LSP behavior and type-checker diagnostics in a production Rust codebase",
     ],
     stack: ["Rust", "Type Systems", "LSP", "Open Source"],
     category: "open-source",
     github: "https://github.com/facebook/pyrefly/pulls?q=is%3Apr+author%3Asgavriil01",
     link: "https://github.com/facebook/pyrefly",
+  },
+  {
+    id: "boc-fintech-hackathon",
+    company: "BoC Fintech Hackathon 6.0",
+    role: "Technical Team Lead - 3rd Place",
+    dates: "Oct 2025",
+    location: "Cyprus",
+    description:
+      "Led the technical work for HYLION, a prototype platform for redistributing surplus PV solar energy to households in need.",
+    highlights: [
+      "Led technical planning and task delegation for a team of 4",
+      "Built a fintech-energy prototype around surplus solar energy redistribution",
+      "Placed 3rd in the competition",
+    ],
+    stack: ["Leadership", "Hackathon", "Fintech", "Energy Tech"],
+    category: "achievement",
   },
   {
     id: "ucy",
@@ -198,28 +247,28 @@ export type SkillGroup = {
 export const skillGroups: SkillGroup[] = [
   {
     label: "Languages",
-    skills: ["Python", "Java", "SQL", "C"],
+    skills: ["Go", "Python", "Java", "SQL", "C"],
   },
   {
     label: "Frameworks & Libraries",
     skills: [
       "Spring Boot",
+      "Quarkus",
       "FastAPI",
-      "Flask",
       "LangChain",
       "Streamlit",
     ],
   },
   {
     label: "Databases & Storage",
-    skills: ["PostgreSQL", "SQL Server", "MySQL"],
+    skills: ["PostgreSQL", "SQL Server", "MySQL", "Redis"],
   },
   {
     label: "Tools & Platforms",
-    skills: ["Git", "Docker", "Postman", "JUnit", "Supabase", "Jira", "Linux"],
+    skills: ["Git", "Docker", "Maven", "Postman", "JUnit", "Linux"],
   },
   {
-    label: "Cloud & DevOps",
-    skills: ["CI/CD Pipelines", "Vercel", "Docker", "RESTful API Design"],
+    label: "Backend & DevOps",
+    skills: ["RESTful API Design", "Kafka Concepts", "CI/CD Pipelines", "Vercel"],
   },
 ];

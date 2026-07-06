@@ -21,7 +21,7 @@ export default function Hero() {
             </p>
 
             <p className="mb-8 font-mono text-sm leading-relaxed text-text-muted">
-              4th-Year Computer Science Student @ UCY.
+              {profile.tagline}
             </p>
 
             <div className="flex flex-wrap gap-3">
