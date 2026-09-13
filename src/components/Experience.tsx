@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import { experience } from "@/data/profile";
 
@@ -64,22 +65,32 @@ export default function Experience() {
               style={{ animationDelay: `${index * 70}ms` }}
             >
               <div className="mb-5 flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-                <div>
-                  <div className="mb-2 flex items-center gap-3">
-                    <span className="h-2 w-2 rounded-full bg-accent shadow-[0_0_16px_rgba(20,184,166,0.5)]" />
+                <div className="flex items-start gap-3">
+                  {item.logo && (
+                    <div
+                      className={`flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border/90 p-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] ${
+                        item.logoSurface === "light" ? "bg-white" : "bg-[#0d0d0d]"
+                      }`}
+                    >
+                      <Image
+                        src={item.logo}
+                        alt={`${item.company} logo`}
+                        width={32}
+                        height={32}
+                        className="h-8 w-8 object-contain"
+                      />
+                    </div>
+                  )}
 
-                    <h3 className="font-display text-xl font-bold leading-tight text-text-primary">
+                  <div>
+                    <h3 className="font-display mb-1 text-xl font-bold leading-tight text-text-primary">
                       {item.company}
                     </h3>
+
+                    <p className="text-sm font-medium text-accent">
+                      {item.role}
+                    </p>
                   </div>
-
-                  <p className="text-sm font-medium text-accent">
-                    {item.role}
-                  </p>
-
-                  <p className="mt-1 text-sm text-text-muted">
-                    {item.location}
-                  </p>
                 </div>
 
                 <p
@@ -135,7 +146,7 @@ export default function Experience() {
                     rel="noopener noreferrer"
                     className="rounded-full border border-accent/30 bg-accent/5 px-3 py-1 text-xs text-accent transition-colors hover:border-accent/60 hover:bg-accent/10"
                   >
-                    Reference
+                    {item.linkLabel ?? "Learn more"}
                   </a>
                 )}
               </div>

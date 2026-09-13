@@ -7,22 +7,42 @@ export default function Hero() {
       <div className="section-shell">
         <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div className="animate-fade-in">
-            <div className="mb-4 flex items-center gap-3">
-              <span className="h-px w-10 bg-accent" />
-              <p className="font-mono text-sm text-accent">hello, world</p>
-            </div>
-
             <h1 className="font-display text-5xl font-extrabold leading-[0.92] text-text-primary sm:text-6xl lg:text-7xl mb-5">
               {profile.name}
             </h1>
 
-            <p className="mb-4 max-w-2xl text-lg leading-relaxed text-text-muted sm:text-xl">
-              {profile.status}
-            </p>
+            <ul className="mb-8 max-w-2xl space-y-2 font-mono text-sm leading-relaxed text-text-muted sm:text-base">
+              <li className="flex gap-3">
+                <span className="shrink-0 text-accent">›</span>
+                <span>
+                  Building{" "}
+                  <a
+                    href={profile.currentBuild.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-text-primary transition-colors hover:text-accent"
+                  >
+                    {profile.currentBuild.name}
+                  </a>
+                  {" "}— {profile.currentBuild.description}
+                </span>
+              </li>
 
-            <p className="mb-8 font-mono text-sm leading-relaxed text-text-muted">
-              {profile.tagline}
-            </p>
+              <li className="flex gap-3">
+                <span className="shrink-0 text-accent">›</span>
+                <span>Software Engineering Intern @ Intergo Telecom</span>
+              </li>
+
+              <li className="flex gap-3">
+                <span className="shrink-0 text-accent">›</span>
+                <span>Final-year Computer Science student @ UCY</span>
+              </li>
+
+              <li className="flex gap-3">
+                <span className="shrink-0 text-accent">›</span>
+                <span>{profile.opportunity}</span>
+              </li>
+            </ul>
 
             <div className="flex flex-wrap gap-3">
               <a

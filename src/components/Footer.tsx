@@ -15,9 +15,9 @@ export default function Footer() {
             </h2>
 
             <p className="max-w-2xl text-base leading-relaxed text-text-muted">
-              Interested in backend, infrastructure, distributed systems, and
-              platform engineering roles. Open to internships, part-time
-              engineering work, and meaningful open-source collaboration.
+              Feel free to reach out. I’m open to graduate software engineering
+              opportunities worldwide, particularly in fintech and trading,
+              as well as interesting projects and open-source collaboration.
             </p>
           </div>
 

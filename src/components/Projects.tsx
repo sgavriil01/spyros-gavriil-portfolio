@@ -251,11 +251,11 @@ export default function Projects() {
 
         {expandedImage && activeProject && (
           <div
-            className="fixed inset-0 z-[60] flex items-center justify-center overflow-y-auto overscroll-contain bg-black/80 p-6 backdrop-blur-sm"
+            className="fixed inset-0 z-[60] flex items-center justify-center overflow-y-auto overscroll-contain bg-black/80 p-4 backdrop-blur-sm sm:p-6"
             onClick={() => setExpandedImage(null)}
           >
             <div
-              className="relative w-full max-w-5xl rounded-2xl border border-border bg-bg p-3 shadow-[0_30px_100px_rgba(0,0,0,0.7)]"
+              className="relative w-full max-w-3xl rounded-2xl border border-border bg-bg p-2 shadow-[0_30px_100px_rgba(0,0,0,0.7)] sm:p-3"
               onClick={(event) => event.stopPropagation()}
             >
               <button
@@ -269,7 +269,7 @@ export default function Projects() {
               <img
                 src={expandedImage}
                 alt={`${activeProject.name} full screenshot`}
-                className="max-h-[78dvh] w-full rounded-xl object-contain"
+                className="mx-auto block h-auto max-h-[70dvh] max-w-full rounded-xl object-contain"
               />
             </div>
           </div>

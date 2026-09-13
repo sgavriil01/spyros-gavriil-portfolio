@@ -10,6 +10,15 @@ export const profile = {
     "Computer Science student building reliable backend systems, APIs, and infrastructure-minded software.",
   bio: "I focus on practical backend systems, dependable APIs, and software that stays understandable as it grows.",
   status: "Software Engineering Intern at Intergo Telecom.",
+  currentBuild: {
+    name: "pozare",
+    url: "https://pozare.app/",
+    logo: "/logo.png",
+    description:
+      "A mobile-first event photo-sharing platform where guests upload photos through a QR code, with no app required.",
+  },
+  opportunity:
+    "Seeking graduate software engineering roles worldwide, especially in fintech and trading technology.",
   education: {
     university: "University of Cyprus",
     degree: "Bachelor of Computer Science",
@@ -147,12 +156,35 @@ export type Experience = {
   highlights: string[];
   stack: string[];
   category: "work" | "open-source" | "achievement" | "education";
+  logo?: string;
+  logoSurface?: "light" | "dark";
   github?: string;
   link?: string;
+  linkLabel?: string;
   incoming?: boolean;
 };
 
 export const experience: Experience[] = [
+  {
+    id: "pozare",
+    company: "pozare",
+    role: "Founding Engineer",
+    dates: "Sep 2026 - Present",
+    location: "Nicosia, Cyprus",
+    description:
+      "Building a mobile-first event photo-sharing platform that helps hosts collect and share every guest's perspective without requiring an app download.",
+    highlights: [
+      "Architecting the product across a Go backend and React/TypeScript client, including QR-based guest uploads",
+      "Designing organiser workflows from event setup and guest collection through gallery delivery",
+      "Launched the public marketing site and waitlist while developing the core platform",
+    ],
+    stack: ["Go", "React", "TypeScript", "Mobile-first", "QR Workflows"],
+    category: "work",
+    logo: "/logo.png",
+    logoSurface: "dark",
+    link: "https://pozare.app/",
+    linkLabel: "Visit pozare",
+  },
   {
     id: "intergo",
     company: "Intergo Telecom",
@@ -168,6 +200,10 @@ export const experience: Experience[] = [
     ],
     stack: ["Java", "Quarkus", "REST APIs", "Telecom", "CPaaS"],
     category: "work",
+    logo: "/intergo-telecom.webp",
+    logoSurface: "light",
+    link: "https://intergotelecom.com/",
+    linkLabel: "Company",
     incoming: false,
   },
   {
@@ -185,7 +221,10 @@ export const experience: Experience[] = [
     ],
     stack: ["Python", "LangChain", "LLM Pipelines", "TTS"],
     category: "work",
+    logo: "/rise_ltd_cyprus_logo.jpg",
+    logoSurface: "light",
     link: "https://www.cyens.org.cy",
+    linkLabel: "Company",
   },
   {
     id: "pyrefly",
@@ -202,8 +241,11 @@ export const experience: Experience[] = [
     ],
     stack: ["Rust", "Type Systems", "LSP", "Open Source"],
     category: "open-source",
+    logo: "/Meta_logo.jpg",
+    logoSurface: "light",
     github: "https://github.com/facebook/pyrefly/pulls?q=is%3Apr+author%3Asgavriil01",
     link: "https://github.com/facebook/pyrefly",
+    linkLabel: "Pyrefly",
   },
   {
     id: "boc-fintech-hackathon",
@@ -220,6 +262,10 @@ export const experience: Experience[] = [
     ],
     stack: ["Leadership", "Hackathon", "Fintech", "Energy Tech"],
     category: "achievement",
+    logo: "/boc-logo-small.png",
+    logoSurface: "dark",
+    link: "https://www.bankofcyprus.com/",
+    linkLabel: "Organiser",
   },
   {
     id: "ucy",
@@ -235,6 +281,10 @@ export const experience: Experience[] = [
     ],
     stack: ["Computer Science", "Systems", "Databases"],
     category: "education",
+    logo: "/University_of_Cyprus.svg.webp",
+    logoSurface: "dark",
+    link: "https://www.ucy.ac.cy/",
+    linkLabel: "University",
     incoming: false,
   },
 ];
