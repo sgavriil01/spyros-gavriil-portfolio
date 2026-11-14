@@ -60,24 +60,17 @@ export const projects: Project[] = [
     highlight: true,
   },
   {
-    id: "edge-llm-thesis",
-    name: "LLM Execution Across the Edge Continuum",
-    summary: "Undergraduate thesis on edge–cloud LLM routing",
-    stack: ["Python", "NVIDIA Jetson", "Simulation", "Edge Computing"],
-    description:
-      "Undergraduate thesis extending a Python edge–cloud LLM simulator to study where LLM inference should run across edge devices and the cloud. The code is private, as it is part of ongoing thesis work.",
-    focus: [
-      "Added availability- and latency-aware routing, network-delay modeling, and concurrency-slot queues to the simulator",
-      "Automated 339 simulation runs across routing, placement, and hardware scenarios",
-      "Validated Jetson AGX Orin energy predictions to 5.10% held-out error",
-    ],
-    highlight: true,
-  },
-  {
     id: "exactly-once-rpc",
     name: "Exactly-Once RPC Processing",
     summary: "Crash-recoverable RPC system with durable deduplication",
     stack: ["Go", "bbolt", "CloudLab", "Distributed Systems"],
+    image: "/projects/previews/rifl/0-thumbnail.png",
+    gallery: [
+      "/projects/previews/rifl/1-architecture.png",
+      "/projects/previews/rifl/2-failover-logs.png",
+      "/projects/previews/rifl/3-results.png",
+      "/projects/previews/rifl/4-tests.png",
+    ],
     description:
       "University team project: a crash-recoverable RPC system that guarantees exactly-once processing through durable request deduplication, result replay, and acknowledgement-based garbage collection.",
     focus: [
