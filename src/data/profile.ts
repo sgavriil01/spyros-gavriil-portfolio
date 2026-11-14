@@ -51,11 +51,41 @@ export const projects: Project[] = [
     description:
       "Built a durable job queue in Go with HTTP job submission, concurrent processing, retries, dead-letter jobs, lease-based recovery, and observability.",
     focus: [
-      "Implemented safe concurrent job claiming with FOR UPDATE SKIP LOCKED",
-      "Added heartbeat-based lease renewal and expired-job reclaiming for reliable worker execution",
-      "Validated recovery behavior with k6 load tests and processed a 10,000-job backlog at 35.71 jobs/sec peak throughput",
+      "Built concurrent job claiming with atomic FOR UPDATE SKIP LOCKED, scaling processing throughput 9.4× from 1 to 10 workers",
+      "Implemented lease heartbeats, crash recovery, retries, and stale-worker protection",
+      "Reduced job-claim query time 15× (2.51 to 0.17 ms) through indexing",
+      "Added Prometheus/Grafana observability and 64 Go tests, including 18 database integration tests run in CI with race detection",
     ],
     github: "https://github.com/sgavriil01/forgequeue",
+    highlight: true,
+  },
+  {
+    id: "edge-llm-thesis",
+    name: "LLM Execution Across the Edge Continuum",
+    summary: "Undergraduate thesis on edge–cloud LLM routing",
+    stack: ["Python", "NVIDIA Jetson", "Simulation", "Edge Computing"],
+    description:
+      "Undergraduate thesis extending a Python edge–cloud LLM simulator to study where LLM inference should run across edge devices and the cloud. The code is private, as it is part of ongoing thesis work.",
+    focus: [
+      "Added availability- and latency-aware routing, network-delay modeling, and concurrency-slot queues to the simulator",
+      "Automated 339 simulation runs across routing, placement, and hardware scenarios",
+      "Validated Jetson AGX Orin energy predictions to 5.10% held-out error",
+    ],
+    highlight: true,
+  },
+  {
+    id: "exactly-once-rpc",
+    name: "Exactly-Once RPC Processing",
+    summary: "Crash-recoverable RPC system with durable deduplication",
+    stack: ["Go", "bbolt", "CloudLab", "Distributed Systems"],
+    description:
+      "University team project: a crash-recoverable RPC system that guarantees exactly-once processing through durable request deduplication, result replay, and acknowledgement-based garbage collection.",
+    focus: [
+      "Co-developed durable request deduplication and result replay, preventing duplicate effects across 50,000 replayed requests",
+      "Implemented acknowledgement-based garbage collection of stored results",
+      "Evaluated on 3 CloudLab servers; the team's GC optimization cut p99 latency 67% (10.33 to 3.40 ms) at 1,024 clients",
+    ],
+    github: "https://github.com/tsembp/rifl-go",
     highlight: true,
   },
   {
@@ -174,11 +204,11 @@ export const experience: Experience[] = [
     description:
       "Building a mobile-first event photo-sharing platform that helps hosts collect and share every guest's perspective without requiring an app download.",
     highlights: [
-      "Architecting the product across a Go backend and React/TypeScript client, including QR-based guest uploads",
-      "Designing organiser workflows from event setup and guest collection through gallery delivery",
-      "Launched the public marketing site and waitlist while developing the core platform",
+      "Engineered Go/PostgreSQL backend services with Cloudflare object storage, presigned uploads, and asynchronous image-processing workflows",
+      "Built background workers for thumbnail generation, upload rate limiting, and event-specific workflows",
+      "Deployed containerized services on Railway",
     ],
-    stack: ["Go", "React", "TypeScript", "Mobile-first", "QR Workflows"],
+    stack: ["Go", "PostgreSQL", "Cloudflare", "Docker", "Railway"],
     category: "work",
     logo: "/logo.png",
     logoSurface: "dark",
@@ -192,13 +222,13 @@ export const experience: Experience[] = [
     dates: "Jun 2026 - Present",
     location: "Remote",
     description:
-      "Contributing to backend development for SIP trunk management features in a telecom and CPaaS platform.",
+      "Backend engineering for SIP trunk management and billing in a telecom and CPaaS platform.",
     highlights: [
-      "Supporting customer workflows to create, view, filter, and manage trunks under tenant accounts",
-      "Helping implement REST APIs and validation logic in Java and Quarkus",
-      "Strengthening validation, permission-based access checks, error handling, and transactional safeguards across SIP trunk and DID workflows",
+      "Primary author of a Java/Quarkus SIP trunk backend built from scratch, covering lifecycle, DID assignment, and call settings; backed by 315 automated tests",
+      "Implemented billing webhook reconciliation and compensating actions for partial failures across external APIs and MongoDB",
+      "Built 2 incremental billing sync workflows using per-customer Redis watermarks and stored-record fallbacks",
     ],
-    stack: ["Java", "Quarkus", "REST APIs", "Telecom", "CPaaS"],
+    stack: ["Java", "Quarkus", "MongoDB", "Redis", "REST APIs"],
     category: "work",
     logo: "/intergo-telecom.webp",
     logoSurface: "light",
@@ -213,13 +243,13 @@ export const experience: Experience[] = [
     dates: "Jun 2025 - Sep 2025",
     location: "Nicosia, Cyprus",
     description:
-      "Developed features for an AI storytelling platform and improved reliability before deployment in a live school study.",
+      "Developed features for an English/Greek AI storytelling platform.",
     highlights: [
-      "Improved generation consistency and multilingual logic for branching narratives",
-      "Rebuilt media pipelines (TTS + image generation) to 100% reliability",
-      "Resolved 10+ critical defects and redesigned navigation flows",
+      "Developed English/Greek AI storytelling workflows using OpenAI APIs, LangChain, and structured prompts for branching narratives",
+      "Improved text-to-speech and image-generation pipelines and resolved 10+ defects",
+      "Supported successful internal proof-of-concept testing",
     ],
-    stack: ["Python", "LangChain", "LLM Pipelines", "TTS"],
+    stack: ["Python", "OpenAI API", "LangChain", "TTS"],
     category: "work",
     logo: "/rise_ltd_cyprus_logo.jpg",
     logoSurface: "light",
@@ -277,7 +307,7 @@ export const experience: Experience[] = [
       "Strong academic background in systems and software foundations, with emphasis on practical engineering and core computer science topics.",
     highlights: [
       "GPA: 8.18 / 10",
-      "Operating Systems, Data Structures, Algorithms, Databases, and core Mathematics",
+      "Data Structures, Algorithms, Operating Systems, Datacenter Computing, Databases, and Mathematics",
     ],
     stack: ["Computer Science", "Systems", "Databases"],
     category: "education",
@@ -302,23 +332,24 @@ export const skillGroups: SkillGroup[] = [
   {
     label: "Frameworks & Libraries",
     skills: [
-      "Spring Boot",
       "Quarkus",
+      "Spring Boot",
       "FastAPI",
+      "Kafka",
       "LangChain",
       "Streamlit",
     ],
   },
   {
     label: "Databases & Storage",
-    skills: ["PostgreSQL", "SQL Server", "MySQL", "Redis"],
+    skills: ["PostgreSQL", "MongoDB", "SQL Server", "MySQL", "Redis"],
   },
   {
     label: "Tools & Platforms",
-    skills: ["Git", "Docker", "Maven", "Postman", "JUnit", "Linux"],
+    skills: ["Linux", "Git", "Docker", "Kubernetes", "Jira", "Maven", "Postman", "JUnit"],
   },
   {
     label: "Backend & DevOps",
-    skills: ["RESTful API Design", "Kafka Concepts", "CI/CD Pipelines", "Vercel"],
+    skills: ["RESTful API Design", "CI/CD Pipelines", "Prometheus", "Grafana", "k6", "Vercel"],
   },
 ];
